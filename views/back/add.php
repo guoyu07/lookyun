@@ -52,6 +52,18 @@
                                 <input type="text" name="shop_url" class="form-control"> <span class="help-block m-b-none">这里填写直达链接，不填放空</span>
                             </div>
                         </div>
+                        <div class="form-group">
+                            <label class="col-sm-2 control-label">大图链接</label>
+                            <div class="col-sm-10">
+                                <input type="text" name="img_big" class="form-control">
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="col-sm-2 control-label">小图链接</label>
+                            <div class="col-sm-10">
+                                <input type="text" name="img_small" class="form-control">
+                            </div>
+                        </div>
                         <div class="hr-line-dashed"></div>
                         <div class="form-group">
                             <label class="col-sm-2 control-label">文章类型</label>
