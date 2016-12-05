@@ -6,7 +6,7 @@ $config = [
     'id' => 'basic',
     'basePath' => dirname(__DIR__),
     'bootstrap' => ['log'],
-    'defaultRoute' => 'post',
+    'defaultRoute' => 'posts',
     'components' => [
         'request' => [
             // !!! insert a secret key in the following (if it is empty) - this is required by cookie validation
@@ -38,7 +38,7 @@ $config = [
             'enablePrettyUrl' => true,
             'showScriptName' => false,
             'rules' => [
-                'posts/<action>' => 'posts/index',
+                'posts/<id:[a-zA-Z0-9\-]+>' => 'posts/doc',
                 '<controller:\w+>/<action:\w+>/<id:\d+>'=>'<controller>/<action>',
             ],
         ]
