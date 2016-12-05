@@ -22,14 +22,14 @@
 <div id="wrapper">
     <!-- Header -->
     <header id="header">
-        <h1><a href="#">那些云主机</a></h1>
+        <h1><a href="<?=\yii\helpers\Url::home()?>">那些云主机</a></h1>
         <nav class="links">
             <ul>
-                <li><a href="#">首页</a></li>
-                <li><a href="#">关于</a></li>
-                <li><a href="#">折扣</a></li>
-                <li><a href="#">WIKI</a></li>
-                <li><a href="#">捐赠</a></li>
+                <li><a href="<?=\yii\helpers\Url::home()?>">首页</a></li>
+                <li><a href="<?=\yii\helpers\Url::home()?>">关于</a></li>
+                <li><a href="<?=\yii\helpers\Url::home()?>">折扣</a></li>
+                <li><a href="<?=\yii\helpers\Url::home()?>">WIKI</a></li>
+                <li><a href="<?=\yii\helpers\Url::home()?>">捐赠</a></li>
             </ul>
         </nav>
         <nav class="main">
