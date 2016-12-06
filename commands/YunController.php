@@ -28,6 +28,7 @@ class YunController extends Controller
      */
     public function actionIndex()
     {
+        echo date("Y-m-d H:i:s")."\r\n";
         $this->getBaidu();
         $this->getAli();
         $this->getTenxun();
@@ -105,7 +106,7 @@ class YunController extends Controller
                 'cate_id' => 1
             ];
             if($model->save()){
-                echo "succ!";
+                echo "baidu succ! \r\n";
             }else
             {
                 print_r($model->getErrors());
@@ -134,7 +135,7 @@ class YunController extends Controller
             'cate_id' => 2
         ];
         if($model->save()){
-            echo "succ!";
+            echo "ali succ! \r\n";
         }else
         {
             print_r($model->getErrors());
@@ -204,7 +205,7 @@ class YunController extends Controller
                 'cate_id' => 3
             ];
             if($model->save()){
-                echo "succ!";
+                echo "tenxun succ!\r\n";
             }else
             {
                 print_r($model->getErrors());
