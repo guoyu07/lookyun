@@ -7,6 +7,7 @@
 
 namespace app\commands;
 
+use app\models\AppYArticle;
 use app\models\data\YPrice;
 use GuzzleHttp\Client;
 use yii\console\Controller;
@@ -30,6 +31,49 @@ class YunController extends Controller
         $this->getBaidu();
         $this->getAli();
         $this->getTenxun();
+        $this->actionDay();
+    }
+
+    public function actionDay()
+    {
+        $model = YPrice::findBySql("SELECT * FROM `y_price` WHERE id IN (SELECT max( id ) FROM `y_price` GROUP BY cate_id )")->all();
+
+        $arr = [];
+        $yun_arr = \Yii::$app->params['yun'];
+        foreach($model as $val){
+            $json = json_decode($val->json_attr,true);
+            $arr[] = [
+                'name' => $yun_arr[$val['cate_id']],
+                'cpu' => $json['cpu']."核",
+                'memory' => $json['memory']."G",
+                'diskSize' => $json['diskSize']."G",
+                'bandwidth' => $json['bandwidth']."M",
+                'preMonth' => $json['preMonth']."月",
+                'price' => $val['price'],
+                'alert' => $val['alert']
+            ];
+        }
+        $content = $this->renderFile(dirname(__FILE__).'/tpl/price.php',['model'=>$arr]);
+
+        $model = new AppYArticle();
+        $attr = [
+            'alias' => date('Ymd')."-price",
+            'category_id' => 4,
+            'shop_url' => '',
+            'summary' => AppYArticle::getMd($content,300),
+            'tags' => implode(',',$yun_arr).",云主机对比,云服务器对比",
+            'title' => date("Y年m月d日")."报价，每日云服务器报价",
+            'content' => $content,
+            'create_time' => time(),
+            'img_big' => '',
+            'img_small' => ''
+        ];
+        $model->attributes = $attr;
+
+        if($model->save())
+        {
+            echo "day_succ! \r\n";
+        }
     }
 
     private function getBaidu(){

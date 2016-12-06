@@ -30,7 +30,7 @@
     <div class="error-desc">
 
         <br/>攻城狮正在努力修复，您可以回主页看看！
-        <br/><a href="<?=\yii\helpers\Url::to()?>" class="btn btn-primary m-t">主页</a>
+        <br/><a href="<?=\yii\helpers\Url::home()?>" class="btn btn-primary m-t">主页</a>
     </div>
 </div>
 

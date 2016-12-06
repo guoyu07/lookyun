@@ -21,7 +21,7 @@ $config = [
             'enableAutoLogin' => true,
         ],
         'errorHandler' => [
-            //'errorAction' => 'post/error',
+            'errorAction' => 'posts/error',
         ],
         'log' => [
             'traceLevel' => YII_DEBUG ? 3 : 0,

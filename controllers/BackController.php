@@ -103,6 +103,11 @@ class BackController extends super
         $arr['category_id'] = AppYArticle::$cate[$arr['category_id']];
         $arr['ystatus'] = AppYArticle::$status[$arr['ystatus']];
         $arr['src'] = AppYArticle::$src[$arr['src']];
+        $arr['title'] = sprintf('<a href="%s" target="_blank" title="%s">%s</a>',Url::to(["posts/{$arr['alias']}"]),$arr['title'],$arr['title']);
+
+        $arr['shop_url'] = empty($arr['shop_url'])?'':sprintf('<a href="%s" target="_blank" title="跳转">
+<i class="glyphicon glyphicon-eye-open"></i></a>',$arr['shop_url']);
+
         return $arr;
     }
 

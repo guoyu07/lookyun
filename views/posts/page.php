@@ -13,7 +13,9 @@
                 <a target="_blank" href="<?=\yii\helpers\Url::to("/")?>" class="author"><span class="name">路客云</span><img src="/post/images/avatar.jpg" alt="" /></a>
             </div>
         </header>
+        <?php if(!empty($val->img_big)){ ?>
         <a href="<?=\yii\helpers\Url::to("posts/{$val->alias}")?>" target="_blank" class="image featured"><img src="<?=empty($val->img_big)?"/post/images/pic03.jpg":$val->img_big?>" alt="" /></a>
+        <?php }?>
         <p>
             <?=$val->content?>
         </p>
