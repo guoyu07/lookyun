@@ -7,7 +7,7 @@
         </div>
         <div class="meta">
             <time class="published" datetime="<?=date('Y-m-d',$val->create_time)?>"><?=date('Y-m-d',$val->create_time)?></time>
-            <a target="_blank" href="<?=\yii\helpers\Url::to("/")?>" class="author"><span class="name">路客云</span><img src="/post/images/avatar.jpg" alt="" /></a>
+            <a target="_blank" href="<?=\yii\helpers\Url::to("/")?>" class="author"><span class="name">路客云管理员</span><img src="/post/images/avatar.jpeg" alt="" /></a>
         </div>
     </header>
     <?php if(!empty($val->img_big)){ ?>
